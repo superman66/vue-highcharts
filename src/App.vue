@@ -10,8 +10,15 @@
         name: 'app',
         data () {
             return {
-                msg: 'Welcome to Your Vue.js App',
-                config: {
+                msg: 1,
+                option: {},
+                chart: null
+            }
+        },
+        mounted(){
+
+            setTimeout(() => {
+                this.option = {
                     chart: {
                         type: 'spline'
                     },
@@ -71,19 +78,29 @@
                             }
                         }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
                     }]
-                },
-                chart: {}
-            }
-        },
-        mounted(){
-            console.log(this.$el);
-            this.chart = new Highcharts.Chart(this.$el, this.config);
-            console.log(this.chart);
+                };
+            }, 3000)
         },
 
         methods: {
-            render(){
+            mergeOption(options){
 
+            },
+
+            _delegateMethod(name, ...args){
+                if(!this.chart){
+
+                }
+            },
+
+            render(){
+                this.chart = new Highcharts.Chart(this.$el, this.option);
+            }
+        },
+
+        watch: {
+            option: function (val, oldVal) {
+                this.render();
             }
         },
 
