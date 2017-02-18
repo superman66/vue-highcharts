@@ -6,7 +6,10 @@
 
 <script>
     import Highcharts from 'highcharts'
+    import {warn} from './debug'
+
     export default {
+        props: ['options'],
         name: 'app',
         data () {
             return {
@@ -84,28 +87,34 @@
 
         methods: {
             mergeOption(options){
-
+              this._delegateMethod('setOption', options)
             },
 
             _delegateMethod(name, ...args){
                 if(!this.chart){
-
+                  warn(`Cannot call [$name] before the chart is initialized. Set prop [options] first.`, this)
+                  return
                 }
+                return this.chart[name](...args)
             },
 
-            render(){
+            _init(){
+              if(!this.chart){
                 this.chart = new Highcharts.Chart(this.$el, this.option);
+              }
             }
         },
 
         watch: {
             option: function (val, oldVal) {
-                this.render();
+                this._init();
             }
         },
 
         beforeDestroy(){
+          if(this.chart){
             this.chart.destroy();
+          }
         }
     }
 </script>
