@@ -18,7 +18,6 @@
     },
     mounted(){
       if (!this.chart && this.options) {
-        console.log('mounted init....');
         this._init();
       }
     },
@@ -46,7 +45,6 @@
 
       _init(){
         if (!this.chart && this.options) {
-          console.log('init...');
           this.chart = new Highcharts.Chart(this.$el, this.options);
         }
       }
@@ -55,17 +53,14 @@
     watch: {
       options: function (options) {
         if (!this.chart && options) {
-          console.log('watch option init....');
           this._init()
         } else {
-          console.log('watch option update....');
           this.chart.update(this.options);
         }
       }
     },
 
     beforeDestroy(){
-      console.log('destroy....');
       if (this.chart) {
         this.chart.destroy();
       }

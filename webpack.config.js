@@ -1,13 +1,8 @@
 var path = require('path')
 var webpack = require('webpack')
+var merge = require('webpack-merge')
 
-module.exports = {
-  entry: './src/main.js',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
-  },
+var base = {
   module: {
     rules: [
       {
@@ -51,7 +46,8 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
-}
+};
+
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
@@ -73,3 +69,29 @@ if (process.env.NODE_ENV === 'production') {
     })
   ])
 }
+
+
+var demo = merge(base, {
+  entry: './demo/main.js',
+  output: {
+    path: path.resolve(__dirname, './demo'),
+    publicPath: '/demo/',
+    filename: 'bundle.js'
+  },
+
+});
+
+var build = merge(base, {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
+    filename: 'vue-highcharts.js',
+    library: 'VueHighcharts',
+    libraryTarget: 'umd'
+  }
+})
+
+module.exports = [demo, build];
+
+
