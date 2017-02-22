@@ -1,22 +1,34 @@
 <template>
     <div id="app">
+        <h1>
+            <a href="https://github.com/superman66/vue-highcharts" target="_blank">
+                Vue-Highcharts
+                <p>the component of Vue 2.0 for Highcharts</p>
+            </a>
+        </h1>
         <section class="charts">
-            <h3>折线图</h3>
-            <vue-highcharts :options="options" ref="charts"></vue-highcharts>
+            <h3>Line Basic
+            <p>load data with async</p>
+            </h3>
+            <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
             <button @click="load">load</button>
+        </section>
+        <section class="charts">
+            <h3>Area Basic</h3>
+            <vue-highcharts :options="areaOptions" ref="areaCharts"></vue-highcharts>
         </section>
 
         <section class="charts">
-            <h3>环形图</h3>
-            <vue-highcharts :options="circleOptions" ref="circleChart"></vue-highcharts>
+            <h3>pie-basic</h3>
+            <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
         </section>
 
 
     </div>
 </template>
 <script>
-    import VueHighcharts from '../src/index'
-    import {initial, async_data} from '../data/data'
+    import VueHighcharts from '../src/VueHighcharts.vue'
+    import * as data from '../data/data'
 
     export default{
         components: {
@@ -24,42 +36,9 @@
         },
         data(){
             return {
-                options: initial,
-                circleOptions: {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 45
-                        }
-                    },
-                    title: {
-                        text: 'Contents of Highsoft\'s weekly fruit delivery'
-                    },
-                    subtitle: {
-                        text: '3D donut in Highcharts'
-                    },
-                    plotOptions: {
-                        pie: {
-                            innerSize: 100,
-                            depth: 45
-                        }
-                    },
-                    series: [{
-                        name: 'Delivered amount',
-                        data: [
-                            ['Bananas', 8],
-                            ['Kiwi', 3],
-                            ['Mixed nuts', 1],
-                            ['Oranges', 6],
-                            ['Apples', 8],
-                            ['Pears', 4],
-                            ['Clementines', 4],
-                            ['Reddish (bag)', 1],
-                            ['Grapes (bunch)', 1]
-                        ]
-                    }]
-                }
+                options: data.initial,
+                areaOptions: data.AreaData,
+                pieOptions: data.PieData
             }
         },
         mounted(){
@@ -67,25 +46,55 @@
         },
         methods: {
             load(){
-                let charts = this.$refs.charts;
-                charts.showLoading('loading');
-                setTimeout(()=> {
-                    charts.addSeries(async_data);
-                    charts.hideLoading();
+                let lineCharts = this.$refs.lineCharts;
+                //charts.showLoading('loading');
+
+                // you also can use the delegateMethod()
+                lineCharts.delegateMethod('showLoading', 'Loading...');
+                setTimeout(() => {
+                    lineCharts.addSeries(data.asyncData);
+                    lineCharts.hideLoading();
                 }, 2000)
             }
         }
     };
 </script>
 <style scoped lang="scss" rel="stylesheet/scss" type="text/css">
-    #app{
+    $chartWidth:600px;
+    * {
+        box-sizing: border-box;
     }
+
+    #app {
+    }
+
+    h1 {
+        font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        margin: 2em 0 1em;
+        text-align: center;
+        a{
+            text-decoration: none;
+            color: #999;
+        }
+
+    }
+
+    h1, h3 {
+        color: #999;
+        font-weight: 300;
+        p{
+            font-size: 14px;
+            margin: 5px ;
+        }
+    }
+
     .charts {
-        width: 600px;
-        margin: 0 auto;
+        width: $chartWidth;
+        margin: 0 auto 2em;
         text-align: center;
         h3 {
             text-align: center;
+            margin: 0;
         }
         button {
             padding: 5px 20px;
@@ -94,10 +103,19 @@
             border: 1px solid #c5c5c5;
             border-radius: 5px;
             outline: none;
-            &:hover{
+            &:hover {
                 background: lightgray;
                 color: #333;
             }
         }
+    }
+    .highcharts{
+        width: $chartWidth;
+        display: inline-block;
+        margin: 2em auto;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 8px;
+        box-shadow: 0 0 45px rgba(0,0,0,0.2);
+        padding: 1.5em 2em;
     }
 </style>

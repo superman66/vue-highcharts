@@ -24,10 +24,10 @@
 
     methods: {
       addSeries(options){
-        this._delegateMethod('addSeries', options);
+        this.delegateMethod('addSeries', options);
       },
       mergeOption(options){
-        this._delegateMethod('update', options)
+        this.delegateMethod('update', options)
       },
       showLoading(txt){
         this.chart.showLoading(txt);
@@ -35,7 +35,7 @@
       hideLoading(){
         this.chart.hideLoading();
       },
-      _delegateMethod(name, ...args){
+      delegateMethod(name, ...args){
         if (!this.chart) {
           warn(`Cannot call [$name] before the chart is initialized. Set prop [options] first.`, this)
           return
@@ -67,4 +67,14 @@
     }
   }
 </script>
+<style  lang="scss" rel="stylesheet/scss" type="text/css">
+  .highcharts{
+    display: inline-block;
+    margin: 2em auto;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);
+    padding: 1.5em 2em;
+  }
+</style>
 

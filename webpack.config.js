@@ -92,6 +92,6 @@ var build = merge(base, {
   }
 })
 
-module.exports = [demo, build];
+module.exports = demo;
 
 
