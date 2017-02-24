@@ -6,23 +6,24 @@
                 <p>the component of Vue 2.0 for Highcharts</p>
             </a>
         </h1>
-        <section class="charts">
-            <h3>Line Basic
-            <p>load data with async</p>
-            </h3>
-            <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
-            <button @click="load">load</button>
-        </section>
-        <section class="charts">
-            <h3>Area Basic</h3>
-            <vue-highcharts :options="areaOptions" ref="areaCharts"></vue-highcharts>
-        </section>
+        <section class="chart-list">
+            <section class="charts">
+                <h3>Line Basic
+                    <p>load data with async</p>
+                </h3>
+                <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
+                <button @click="load">load</button>
+            </section>
+            <section class="charts">
+                <h3>Area Basic</h3>
+                <vue-highcharts :options="areaOptions" ref="areaCharts"></vue-highcharts>
+            </section>
 
-        <section class="charts">
-            <h3>pie-basic</h3>
-            <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
+            <section class="charts">
+                <h3>pie-basic</h3>
+                <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
+            </section>
         </section>
-
 
     </div>
 </template>
@@ -59,10 +60,18 @@
         }
     };
 </script>
-<style scoped lang="scss" rel="stylesheet/scss" type="text/css">
-    $chartWidth:600px;
+<style lang="scss" rel="stylesheet/scss" type="text/css">
+    $chartWidth: 600px;
     * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: rgba(37, 37, 37, 0.84);
     }
 
     #app {
@@ -70,27 +79,28 @@
 
     h1 {
         font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-        margin: 2em 0 1em;
+        padding: 2em 0 1em;
         text-align: center;
-        a{
+        a {
             text-decoration: none;
-            color: #999;
+            color: #ccc;
         }
 
     }
 
     h1, h3 {
-        color: #999;
+        color: #ccc;
         font-weight: 300;
-        p{
+        p {
             font-size: 14px;
-            margin: 5px ;
+            margin: 5px;
         }
     }
 
     .charts {
         width: $chartWidth;
-        margin: 0 auto 2em;
+        margin: 0 auto ;
+        padding-bottom: 2em;
         text-align: center;
         h3 {
             text-align: center;
@@ -109,13 +119,14 @@
             }
         }
     }
-    .highcharts{
-        width: $chartWidth;
+
+    .highcharts {
         display: inline-block;
         margin: 2em auto;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        box-shadow: 0 0 45px rgba(0,0,0,0.2);
-        padding: 1.5em 2em;
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
+        padding: 1.5em 0em;
+        background: #fff;
     }
 </style>
