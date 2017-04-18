@@ -8,7 +8,7 @@
   import {warn} from './debug'
 
   export default {
-    props: ['options'],
+    props: ['options', 'Highcharts'],
     name: 'VueHighcharts',
     data () {
       return {
@@ -45,7 +45,8 @@
 
       _init(){
         if (!this.chart && this.options) {
-          this.chart = new Highcharts.Chart(this.$el, this.options);
+         let _Highcharts = this.Highcharts || Highcharts;
+          this.chart = new _Highcharts.Chart(this.$el, this.options);
         }
       }
     },
