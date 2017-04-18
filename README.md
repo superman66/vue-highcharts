@@ -100,6 +100,13 @@ export default{
     }
 }
 ```
+If you want to use Highstock, Highmaps or any other add-ons, you should pass in the Highcharts object which included the corresponding modules.
+```javascript
+    import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
+    import Highcharts from 'highcharts'
+    Drilldown(Highcharts);
+```
+[See the code for more details]()
 ## Properties
 * `options` the data of Charts
 
