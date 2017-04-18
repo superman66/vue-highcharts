@@ -106,7 +106,7 @@ import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
 import Highcharts from 'highcharts'
 Drilldown(Highcharts);
 ```
-[See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue)
+[See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue#L35-L39)
 ## Properties
 * `options` the data of Charts
 
