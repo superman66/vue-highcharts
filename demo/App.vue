@@ -23,14 +23,20 @@
                 <h3>pie-basic</h3>
                 <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
             </section>
+            <section class="charts">
+                <h3>Drilldown</h3>
+                <vue-highcharts :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
+            </section>
         </section>
 
     </div>
 </template>
 <script>
     import VueHighcharts from '../src/VueHighcharts.vue'
+    import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
     import * as data from '../data/data'
-
+    import Highcharts from 'highcharts'
+    Drilldown(Highcharts);
     export default{
         components: {
             VueHighcharts
@@ -39,7 +45,8 @@
             return {
                 options: data.initial,
                 areaOptions: data.AreaData,
-                pieOptions: data.PieData
+                pieOptions: data.PieData,
+                drilldownOptions: data.DrilldownData
             }
         },
         mounted(){

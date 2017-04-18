@@ -1,57 +1,57 @@
 export let initial = {
-  chart: {
-    type: 'spline'
-  },
-  title: {
-    text: 'Monthly Average Temperature'
-  },
-  subtitle: {
-    text: 'Source: WorldClimate.com'
-  },
-  xAxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  },
-  yAxis: {
-    title: {
-      text: 'Temperature'
+    chart: {
+        type: 'spline'
     },
-    labels: {
-      formatter: function () {
-        return this.value + '°';
-      }
-    }
-  },
-  tooltip: {
-    crosshairs: true,
-    shared: true
-  },
-  credits: {
-    enabled: false
-  },
-  plotOptions: {
-    spline: {
-      marker: {
-        radius: 4,
-        lineColor: '#666666',
-        lineWidth: 1
-      }
-    }
-  },
-  series: []
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature'
+        },
+        labels: {
+            formatter: function () {
+                return this.value + '°';
+            }
+        }
+    },
+    tooltip: {
+        crosshairs: true,
+        shared: true
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        spline: {
+            marker: {
+                radius: 4,
+                lineColor: '#666666',
+                lineWidth: 1
+            }
+        }
+    },
+    series: []
 };
 
 export let asyncData = {
-  name: 'Tokyo',
-  marker: {
-    symbol: 'square'
-  },
-  data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
-    y: 26.5,
+    name: 'Tokyo',
     marker: {
-      symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
-    }
-  }, 23.3, 18.3, 13.9, 9.6]
+        symbol: 'square'
+    },
+    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+        y: 26.5,
+        marker: {
+            symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
+        }
+    }, 23.3, 18.3, 13.9, 9.6]
 }
 
 
@@ -160,3 +160,79 @@ export const PieData = {
         ]
     }]
 }
+
+export const DrilldownData = {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Basic drilldown'
+    },
+    xAxis: {
+        type: 'category'
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    series: [{
+        name: 'Things',
+        colorByPoint: true,
+        data: [{
+            name: 'Animals',
+            y: 5,
+            drilldown: 'animals'
+        }, {
+            name: 'Fruits',
+            y: 2,
+            drilldown: 'fruits'
+        }, {
+            name: 'Cars',
+            y: 4,
+            drilldown: 'cars'
+        }]
+    }],
+    drilldown: {
+        series: [{
+            id: 'animals',
+            data: [
+                ['Cats', 4],
+                ['Dogs', 2],
+                ['Cows', 1],
+                ['Sheep', 2],
+                ['Pigs', 1]
+            ]
+        }, {
+            id: 'fruits',
+            data: [{
+                name: 'Apples',
+                y: 4
+            }, {
+                name: 'Oranges',
+                y: 2,
+                drilldown: 'third-leves'
+            }]
+        }, {
+            id: 'cars',
+            data: [
+                ['Toyota', 4],
+                ['Opel', 2],
+                ['Volkswagen', 2]
+            ]
+        }, {
+            id: 'third-leves',
+            data: [
+                ['Toyota', 4],
+                ['Opel', 2],
+                ['Volkswagen', 2]
+            ]
+        }]
+    }
+};
