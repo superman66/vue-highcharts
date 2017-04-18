@@ -100,13 +100,17 @@ export default{
     }
 }
 ```
-If you want to use Highstock, Highmaps or any other add-ons, you should pass in the Highcharts object which included the corresponding modules.
+If you want to use Highstock, Highmaps or any other add-ons, you should pass in the Highcharts object which included the corresponding modules. And pass the Highcharts to the VueHighcharts instance.
 ```javascript
+// import add-ons and pass in the Highcharts
 import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
 import Highcharts from 'highcharts'
 Drilldown(Highcharts);
+
+// pass Highcharts to the VueHicharts instance(if you needn't to use other feature modules, you don't have to pass it.)
+<vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
 ```
-[See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue#L35-L39)
+[See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue#L35-L40)
 ## Properties
 * `options` the data of Charts
 
