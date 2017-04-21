@@ -2,6 +2,8 @@
 
 > The component of Vue 2.0 for highcharts
 
+[中文 README](./README_zh.md)
+
 Check the [DEMO](http://www.iamsuperman.cn/vue-highcharts/demo/)
 
 ## Installation
@@ -100,6 +102,10 @@ export default{
     }
 }
 ```
+you can get the chart instance by `this.$refs.lineCharts`
+
+And using the methods of Highchart with `delegateMethod()`
+
 If you want to use Highstock, Highmaps or any other add-ons, you should pass in the Highcharts object which included the corresponding modules. And pass the Highcharts to the VueHighcharts instance.
 ```javascript
 // import add-ons and pass in the Highcharts
@@ -112,11 +118,8 @@ Drilldown(Highcharts);
 ```
 [See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue#L35-L40)
 ## Properties
-* `options` the data of Charts
-
-
-you can get the chart instance by `this.$refs.lineCharts`.
-And using the methods of Highchart with `delegateMethod()`
+* `options`: the data of Charts
+* `Highcharts`: Highcharts object, it is option.
 
 
 ## Build Setup
