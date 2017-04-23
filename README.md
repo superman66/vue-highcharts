@@ -7,12 +7,6 @@
 Check the [DEMO](http://www.iamsuperman.cn/vue-highcharts/demo/)
 
 ## Installation
-
-#### Manual
-Just Download `dist/vue-highcharts.js` and include in your HTML file
-```html
-<script type="text/javascript" src="path/to/vue-highcharts/dist/vue-highcharts.js"></script>
-```
 #### npm
 
 ```
