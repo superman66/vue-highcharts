@@ -21,7 +21,8 @@ npm install vue2-highcharts --save
   <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
   <button @click="load">load</button>
 </template>
-import VueHighcharts from 'vue-highcharts'
+<script>
+import VueHighcharts from 'vue2-highcharts'
 const asyncData = {
   name: 'Tokyo',
   marker: {
@@ -95,6 +96,7 @@ export default{
       }
     }
 }
+</script>
 ```
 you can get the chart instance by `this.$refs.lineCharts`
 
