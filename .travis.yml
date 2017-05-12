@@ -12,7 +12,7 @@ script:
 deploy:
   provider: npm
   email: supermanchc@gmail.com
-  api_key: $NPM_TOKEN
+  api_key: $NPM_KEY
   on:
     tags: true
     branch: master
