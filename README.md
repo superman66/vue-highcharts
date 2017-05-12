@@ -125,7 +125,7 @@ Drilldown(Highcharts);
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# open "localhost:8080/demo" in browers
 npm run dev
 
 # build for production with minification
