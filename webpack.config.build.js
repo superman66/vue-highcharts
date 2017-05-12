@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-var base = require('webpack.config.base')
+var base = require('./webpack.config.base')
 var merge = require('webpack-merge')
 
 

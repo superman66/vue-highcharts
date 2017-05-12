@@ -32,8 +32,7 @@
     </div>
 </template>
 <script>
-    // import VueHighcharts from '../src/VueHighcharts.vue'
-    import VueHighcharts from '../dist/vue-highcharts.js'
+    import VueHighcharts from '../src/VueHighcharts.vue'
     import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
     import * as data from '../data/data'
     import Highcharts from 'highcharts'
