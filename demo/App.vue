@@ -33,7 +33,7 @@
 </template>
 <script>
     import VueHighcharts from '../src/VueHighcharts.vue'
-    import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
+    import Drilldown from '../node_modules/highcharts/modules/drilldown.js'
     import * as data from '../data/data'
     import Highcharts from 'highcharts'
     Drilldown(Highcharts);
