@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts) [![npm](https://img.shields.io/npm/dt/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts)
+[![Travis](https://img.shields.io/travis/superman66/vue-highcharts.svg)](https://travis-ci.org/superman66/vue-highcharts) [![npm](https://img.shields.io/npm/v/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts) [![npm](https://img.shields.io/npm/dt/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts)
 # vue-highcharts
 
 > The component of Vue 2.0 for highcharts
