@@ -1,3 +1,4 @@
+[![npm](https://img.shields.io/npm/v/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts) [![npm](https://img.shields.io/npm/dt/vue2-highcharts.svg?style=plastic)](https://www.npmjs.com/package/vue2-highcharts)
 # vue-highcharts
 
 > The component of Vue 2.0 for highcharts
@@ -17,7 +18,8 @@ npm install vue2-highcharts --save
   <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
   <button @click="load">load</button>
 </template>
-import VueHighcharts from 'vue-highcharts'
+<script>
+import VueHighcharts from 'vue2-highcharts'
 const asyncData = {
   name: 'Tokyo',
   marker: {
@@ -91,6 +93,7 @@ export default{
       }
     }
 }
+</script>
 ```
 可以通过 `this.$refs.lineCharts` 来获取到highcharts的实例。然后通过 `delegateMethod()` 这个代理方法，就可以调用所有 highcharts 的 方法。比如调用 `showLoading` 的方法。
 
