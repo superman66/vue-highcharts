@@ -1,7 +1,7 @@
 {
   "name": "vue2-highcharts",
   "description": "vue-highcharts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "superman <supermanchc@gmail.com>",
   "private": false,
   "main": "dist/vue-highcharts.js",
