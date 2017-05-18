@@ -3,7 +3,7 @@
         <h1>
             <a href="https://github.com/superman66/vue-highcharts" target="_blank">
                 Vue-Highcharts
-                <p>the component of Vue 2.0 for Highcharts</p>
+                <p>the component of Vue 2+ for Highcharts</p>
             </a>
         </h1>
         <section class="chart-list">
