@@ -5,10 +5,10 @@ cache:
   bundler: true
   directories:
   - node_modules
-after_script:
-  - npm run demo
 script: 
+  - npm run demo
   - npm run build
+
 deploy:
   provider: npm
   email: supermanchc@gmail.com
