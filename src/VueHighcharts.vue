@@ -23,6 +23,9 @@
     },
 
     methods: {
+      getChart(){
+        return this.chart
+      },
       addSeries(options){
         this.delegateMethod('addSeries', options);
       },
