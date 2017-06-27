@@ -29,7 +29,7 @@
         this.delegateMethod('addSeries', options);
       },
       removeSeries(){
-        while(this.chart.series !== 0) {
+        while(this.chart.series.length !== 0) {
           this.chart.series[0].remove();
         }
       },
