@@ -3,7 +3,7 @@
 
 > The component of Vue 2.0 for highcharts
 
-查看 [DEMO](http://www.iamsuperman.cn/vue-highcharts/demo/)
+查看 [DEMO](http://chenhuichao.com/vue-highcharts/demo/)
 
 ## 安装
 #### npm
