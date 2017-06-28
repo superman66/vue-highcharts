@@ -1,7 +1,7 @@
 {
   "name": "vue2-highcharts",
   "description": "vue-highcharts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "superman <supermanchc@gmail.com>",
   "private": false,
   "main": "dist/vue-highcharts.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "demo": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.build.js --progress --hide-modules"
+    "build": "rm -rf dist/ && cross-env NODE_ENV=production webpack --config webpack.config.build.js --progress --hide-modules"
   },
   "dependencies": {
     "highcharts": "^5.0.7",
