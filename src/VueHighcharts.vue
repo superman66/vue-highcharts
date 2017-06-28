@@ -29,8 +29,8 @@
         this.delegateMethod('addSeries', options);
       },
       removeSeries(){
-        while(this.chart.series.length !== 0) {
-          this.chart.series[0].remove();
+        while(this.getChart().series.length !== 0) {
+          this.getChart().series[0].remove();
         }
       },
       mergeOption(options){
