@@ -28,6 +28,11 @@
       addSeries(options){
         this.delegateMethod('addSeries', options);
       },
+      removeSeries(){
+        while(this.chart.series.length !== 0) {
+          this.chart.series[0].remove();
+        }
+      },
       mergeOption(options){
         this.delegateMethod('update', options)
       },
@@ -70,5 +75,3 @@
     }
   }
 </script>
-
-
