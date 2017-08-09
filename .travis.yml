@@ -6,7 +6,6 @@ cache:
   directories:
   - node_modules
 script: 
-  - npm run demo
   - npm run build
 
 deploy:
