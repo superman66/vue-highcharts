@@ -53,7 +53,11 @@
       _init(){
         if (!this.getChart() && this.options) {
          let _Highcharts = this.Highcharts || Highcharts;
-          this.chart = new _Highcharts.Chart(this.$el, this.options);
+         if (_Highcharts.product == 'Highstock') {
+           this.chart = new _Highcharts.stockChart(this.$el, this.options);
+         } else {
+           this.chart = new _Highcharts.Chart(this.$el, this.options);
+         }
         }
       }
     },
