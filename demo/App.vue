@@ -13,6 +13,7 @@
                 </h3>
                 <vue-highcharts  :options="options" ref="lineCharts"></vue-highcharts>
                 <button @click="load">load</button>
+                <button @click="update">update xAxis Categories</button>
             </section>
             <section class="charts">
                 <h3>Area Basic</h3>
@@ -64,6 +65,10 @@
                     lineCharts.addSeries(data.asyncData);
                     lineCharts.hideLoading();
                 }, 2000)
+            },
+            update(){
+                let lineCharts = this.$refs.lineCharts;
+                lineCharts.getChart().xAxis[0].setCategories(['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']);
             }
         }
     };
