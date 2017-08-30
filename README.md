@@ -133,3 +133,7 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+Copyright (c) 2017-present, [superman66](github.com/superman66)
