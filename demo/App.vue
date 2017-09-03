@@ -11,18 +11,20 @@
                 <h3>Line Basic
                     <p>load data with async</p>
                 </h3>
-                <vue-highcharts  :options="options" ref="lineCharts"></vue-highcharts>
+                <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
                 <button @click="load">load</button>
                 <button @click="update">update xAxis Categories</button>
+                <button @click="remove">remove Series</button>
+                <button @click="add">add Series</button>
             </section>
             <section class="charts">
                 <h3>Area Basic</h3>
-                <vue-highcharts  :options="areaOptions" ref="areaCharts"></vue-highcharts>
+                <vue-highcharts :options="areaOptions" ref="areaCharts"></vue-highcharts>
             </section>
 
             <section class="charts">
                 <h3>pie-basic</h3>
-                <vue-highcharts  :options="pieOptions" ref="pieChart"></vue-highcharts>
+                <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
             </section>
             <section class="charts">
                 <h3>Drilldown</h3>
@@ -33,113 +35,126 @@
     </div>
 </template>
 <script>
-    import VueHighcharts from '../src/VueHighcharts.vue'
-    import Drilldown from '../node_modules/highcharts/modules/drilldown.js'
-    import * as data from '../data/data'
-    import Highcharts from 'highcharts'
-    Drilldown(Highcharts);
-    export default{
-        components: {
-            VueHighcharts
-        },
-        data(){
-            return {
-                Highcharts: Highcharts,
-                options: data.initial,
-                areaOptions: data.AreaData,
-                pieOptions: data.PieData,
-                drilldownOptions: data.DrilldownData
-            }
-        },
-        mounted(){
-
-        },
-        methods: {
-            load(){
-                let lineCharts = this.$refs.lineCharts;
-                //charts.showLoading('loading');
-
-                // you also can use the delegateMethod()
-                lineCharts.delegateMethod('showLoading', 'Loading...');
-                setTimeout(() => {
-                    lineCharts.addSeries(data.asyncData);
-                    lineCharts.hideLoading();
-                }, 2000)
-            },
-            update(){
-                let lineCharts = this.$refs.lineCharts;
-                lineCharts.getChart().xAxis[0].setCategories(['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']);
-            }
+import VueHighcharts from '../src/VueHighcharts.vue'
+import Drilldown from '../node_modules/highcharts/modules/drilldown.js'
+import * as data from '../data/data'
+import Highcharts from 'highcharts'
+Drilldown(Highcharts);
+export default {
+    components: {
+        VueHighcharts
+    },
+    data() {
+        return {
+            Highcharts: Highcharts,
+            options: data.initial,
+            areaOptions: data.AreaData,
+            pieOptions: data.PieData,
+            drilldownOptions: data.DrilldownData
         }
-    };
+    },
+    mounted() {
+
+    },
+    methods: {
+        load() {
+            let lineCharts = this.$refs.lineCharts;
+            //charts.showLoading('loading');
+
+            // you also can use the delegateMethod()
+            lineCharts.delegateMethod('showLoading', 'Loading...');
+            setTimeout(() => {
+                lineCharts.addSeries(data.asyncData);
+                lineCharts.hideLoading();
+            }, 2000)
+        },
+        update() {
+            let lineCharts = this.$refs.lineCharts;
+            lineCharts.getChart().xAxis[0].setCategories(['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']);
+        },
+        remove() {
+            this.$refs.lineCharts.removeSeries();
+        },
+        add() {
+            this.$refs.lineCharts.addSeries({
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+                    y: 26.5,
+                    marker: {
+                        symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
+                    }
+                }, 23.3, 18.3, 13.9, 9.6]
+            })
+        }
+    }
+};
 </script>
 <style lang="scss" rel="stylesheet/scss" type="text/css">
-    $chartWidth: 600px;
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+$chartWidth: 600px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        background: rgba(37, 37, 37, 0.84);
-    }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: rgba(37, 37, 37, 0.84);
+}
 
-    #app {
-    }
+#app {}
 
-    h1 {
-        font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-        padding: 2em 0 1em;
-        text-align: center;
-        a {
-            text-decoration: none;
-            color: #ccc;
-        }
-
-    }
-
-    h1, h3 {
+h1 {
+    font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    padding: 2em 0 1em;
+    text-align: center;
+    a {
+        text-decoration: none;
         color: #ccc;
-        font-weight: 300;
-        p {
-            font-size: 14px;
-            margin: 5px;
-        }
     }
+}
 
-    .charts {
-        width: $chartWidth;
-        margin: 0 auto ;
-        padding-bottom: 2em;
+h1,
+h3 {
+    color: #ccc;
+    font-weight: 300;
+    p {
+        font-size: 14px;
+        margin: 5px;
+    }
+}
+
+.charts {
+    width: $chartWidth;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    text-align: center;
+    h3 {
         text-align: center;
-        h3 {
-            text-align: center;
-            margin: 0;
-        }
-        button {
-            padding: 5px 20px;
-            background: #fff;
-            -webkit-appearance: none;
-            border: 1px solid #c5c5c5;
-            border-radius: 5px;
-            outline: none;
-            &:hover {
-                background: lightgray;
-                color: #333;
-            }
-        }
+        margin: 0;
     }
-
-    .highcharts {
-        display: inline-block;
-        margin: 2em auto;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
-        padding: 1.5em 0em;
+    button {
+        padding: 5px 20px;
         background: #fff;
+        -webkit-appearance: none;
+        border: 1px solid #c5c5c5;
+        border-radius: 5px;
+        outline: none;
+        &:hover {
+            background: lightgray;
+            color: #333;
+        }
     }
+}
+
+.highcharts {
+    display: inline-block;
+    margin: 2em auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
+    padding: 1.5em 0em;
+    background: #fff;
+}
 </style>
