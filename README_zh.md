@@ -13,11 +13,14 @@ npm install vue2-highcharts --save
 ## 用法
 
 ## 使用 ES6 Module引入，异步加载数据（推荐使用 ES6 `import`）
-```javascript
+```es6
 <template>
-  <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
-  <button @click="load">load</button>
+  <div>
+    <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
+    <button @click="load">load</button>
+  </div>
 </template>
+
 <script>
 import VueHighcharts from 'vue2-highcharts'
 const asyncData = {
@@ -79,10 +82,10 @@ export default{
             }
           },
           series: []
-        };
+        }
       }
     },
-    methods{
+    methods: {
       load(){
           let lineCharts = this.$refs.lineCharts;
           lineCharts.delegateMethod('showLoading', 'Loading...');

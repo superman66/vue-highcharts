@@ -17,11 +17,14 @@ npm install vue2-highcharts --save
 ## Usage
 
 ## Using ES6 Module in the component with load async data
-```javascript
+```es6
 <template>
-  <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
-  <button @click="load">load</button>
+  <div>
+    <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
+    <button @click="load">load</button>
+  </div>
 </template>
+
 <script>
 import VueHighcharts from 'vue2-highcharts'
 const asyncData = {
@@ -83,10 +86,10 @@ export default{
             }
           },
           series: []
-        };
+        }
       }
     },
-    methods{
+    methods: {
       load(){
           let lineCharts = this.$refs.lineCharts;
           lineCharts.delegateMethod('showLoading', 'Loading...');
