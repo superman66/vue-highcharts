@@ -17,7 +17,7 @@
     },
     mounted(){
       if (!this.getChart() && this.options) {
-        this._init();
+        this.init();
       }
     },
 
@@ -50,7 +50,7 @@
         return this.getChart()[name](...args)
       },
 
-      _init(){
+      init(){
         if (!this.getChart() && this.options) {
          let _Highcharts = this.Highcharts || Highcharts;
          if (_Highcharts.product == 'Highstock') {
@@ -65,7 +65,7 @@
     watch: {
       options: function (options) {
         if (!this.getChart() && options) {
-          this._init()
+          this.init()
         } else {
           this.getChart().update(this.options);
         }
