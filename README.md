@@ -106,17 +106,21 @@ you can get the chart instance by `this.$refs.lineCharts`
 
 And using the methods of Highchart with `delegateMethod()`
 
-If you want to use Highstock, Highmaps or any other add-ons, you should pass in the Highcharts object which included the corresponding modules. And pass the Highcharts to the VueHighcharts instance.
+If you want to use Highstock, Highmaps or any other add-ons, you should load add-ons as a module.
+
+**Load Drilldown module**
+
 ```javascript
-// import add-ons and pass in the Highcharts
+import Exporting from '../node_modules/highcharts/modules/Exporting.js'
 import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
 import Highcharts from 'highcharts'
+// Load Drilldown module
 Drilldown(Highcharts);
-
-// pass Highcharts to the VueHicharts instance(if you needn't to use other feature modules, you don't have to pass it.)
+// Load Exporting module
+Exporting(Highcharts);
 <vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
 ```
-[See the code for more details](https://github.com/superman66/vue-highcharts/blob/master/demo/App.vue#L35-L40)
+you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs/getting-started/install-from-npm)
 ## Properties
 * `options`: the data of Charts
 * `Highcharts`: Highcharts object, it is option.
