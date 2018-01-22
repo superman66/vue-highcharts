@@ -1,4 +1,4 @@
-export let initial = {
+export let basicData = {
     chart: {
         type: 'spline'
     },
