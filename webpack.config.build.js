@@ -3,10 +3,10 @@ var webpack = require('webpack')
 var base = require('./webpack.config.base')
 var merge = require('webpack-merge')
 
-
+let plugins = [];
 if (process.env.NODE_ENV === 'production') {
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  plugins.concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -32,7 +32,8 @@ var build = merge(base, {
     filename: 'vue-highcharts.js',
     library: 'VueHighcharts',
     libraryTarget: 'umd'
-  }
+  },
+  plugins
 })
 
 module.exports = build;

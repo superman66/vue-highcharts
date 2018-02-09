@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+
 var base = {
   module: {
     rules: [
@@ -43,7 +44,10 @@ var base = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+
+  ]
 };
 
 
