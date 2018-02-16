@@ -47,7 +47,7 @@ var base = {
   devtool: '#eval-source-map',
   plugins: [
 
-  ]
+  ],
 };
 
 

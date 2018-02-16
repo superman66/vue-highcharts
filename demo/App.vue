@@ -1,34 +1,31 @@
 <template>
     <div id="app">
-        <h1>
-            <a href="https://github.com/superman66/vue-highcharts" target="_blank">
-                Vue-Highcharts
-                <p>the component of Vue 2+ for Highcharts</p>
-            </a>
-        </h1>
-        <section class="chart-list">
-            <dynamic-chart />
-            <area-chart />
-            <pie-chart />
-            <load-module-chart />
-        </section>
+        <div class="nav">
+          <router-link active-class="active" :to="component.to" v-for="component in list" v-bind:key="component.name">
+            {{component.name}}
+          </router-link>
+        </div>
+       <router-view></router-view>
     </div>
 </template>
 <script>
-import DynamicChart from './DynamicChart.vue'
-import AreaChart from './AreaChart.vue'
-import PieChart from './PieChart.vue'
-import LoadModuleChart from './LoadModuleChart.vue'
+import * as components from './components'
+
+const list = Object.keys(components)
+  .filter(c => components.hasOwnProperty(c))
+  .map(c => ({
+    to: `/${c}`,
+    name: c,
+  }))
 
 export default {
   components: {
-    DynamicChart,
-    AreaChart,
-    PieChart,
-    LoadModuleChart,
+    ...components,
   },
   data() {
-    return {}
+    return {
+      list,
+    }
   },
 }
 </script>
@@ -42,6 +39,7 @@ $chartWidth: 600px;
 
 html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   background: rgba(37, 37, 37, 0.84);
@@ -73,7 +71,7 @@ h3 {
 .charts {
   width: $chartWidth;
   margin: 0 auto;
-  padding-bottom: 2em;
+  padding: 2em 0;
   text-align: center;
   h3 {
     text-align: center;
@@ -101,5 +99,18 @@ h3 {
   box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
   padding: 1.5em 0em;
   background: #fff;
+}
+.nav {
+  padding: 15px 0 0;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
+  a {
+    color: #adaba5;
+    margin-right: 10px;
+    &.active, &:hover{
+      color: chocolate;
+    }
+  }
 }
 </style>
