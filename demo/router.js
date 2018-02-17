@@ -5,4 +5,8 @@ export const routes = Object.keys(App.components).map(component => ({
   name: component.toLowerCase(),
 }))
 console.log(routes)
+routes.push({
+  path: '/',
+  redirect: '/LineChart'
+})
 export default routes

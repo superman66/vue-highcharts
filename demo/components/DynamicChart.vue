@@ -1,86 +1,89 @@
 <template>
-    <section class="charts">
-        <h3>Line Basic
-            <p>Load data with async</p>
-        </h3>
-        <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
-        <button @click="load">load</button>
-        <button @click="update">update xAxis Categories</button>
-        <button @click="remove">remove Series</button>
-        <button @click="add">add Series</button>
+  <section class="charts">
+        <h3>Dynamic Chart</h3>
+        <vue-highcharts :options="options" ></vue-highcharts>
     </section>
 </template>
 <script>
-import VueHighcharts from '../../src/VueHighcharts.vue'
-import * as data from '../../data/data'
 
+import VueHighcharts from '../../src/VueHighcharts.vue'
+import Highcharts from 'highcharts'
+
+
+const data ={
+    chart: {
+        type: 'spline',
+        animation: Highcharts.svg, // don't animate in old IE
+        marginRight: 10,
+        events: {
+            load: function () {
+
+                // set up the updating of the chart each second
+                var series = this.series[0];
+                setInterval(function () {
+                    var x = (new Date()).getTime(), // current time
+                        y = Math.random();
+                    series.addPoint([x, y], true, true);
+                }, 1000);
+            }
+        }
+    },
+    title: {
+        text: 'Live random data'
+    },
+    xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 150
+    },
+    yAxis: {
+        title: {
+            text: 'Value'
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                Highcharts.numberFormat(this.y, 2);
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    exporting: {
+        enabled: false
+    },
+    series: [{
+        name: 'Random data',
+        data: (function () {
+            // generate an array of random data
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: Math.random()
+                });
+            }
+            return data;
+        }())
+    }]
+}
 export default {
   components: {
     VueHighcharts,
   },
   data() {
     return {
-      options: data.basicData,
+      options: data,
     }
-  },
-  mounted() {},
-  methods: {
-    load() {
-      let lineCharts = this.$refs.lineCharts
-      //charts.showLoading('loading');
-
-      // you also can use the delegateMethod()
-      lineCharts.delegateMethod('showLoading', 'Loading...')
-      setTimeout(() => {
-        lineCharts.addSeries(data.asyncData)
-        lineCharts.hideLoading()
-      }, 2000)
-    },
-    update() {
-      let lineCharts = this.$refs.lineCharts
-      lineCharts
-        .getChart()
-        .xAxis[0].setCategories([
-          'J',
-          'F',
-          'M',
-          'A',
-          'M',
-          'J',
-          'J',
-          'A',
-          'S',
-          'O',
-          'N',
-          'D',
-        ])
-    },
-    remove() {
-      this.$refs.lineCharts.removeSeries()
-    },
-    add() {
-      this.$refs.lineCharts.addSeries({
-        data: [
-          7.0,
-          6.9,
-          9.5,
-          14.5,
-          18.2,
-          21.5,
-          25.2,
-          {
-            y: 26.5,
-            marker: {
-              symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)',
-            },
-          },
-          23.3,
-          18.3,
-          13.9,
-          9.6,
-        ],
-      })
-    },
-  },
+  }
 }
 </script>

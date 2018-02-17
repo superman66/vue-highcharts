@@ -1,7 +1,7 @@
 <template>
     <section class="charts">
         <h3>Line Basic
-            <p>load data with async</p>
+            <p>Load data with async</p>
         </h3>
         <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
         <button @click="load">load</button>
@@ -11,8 +11,8 @@
     </section>
 </template>
 <script>
-import VueHighcharts from '../src/VueHighcharts.vue'
-import * as data from '../data/data'
+import VueHighcharts from '../../src/VueHighcharts.vue'
+import * as data from '../../data/data'
 
 export default {
   components: {
