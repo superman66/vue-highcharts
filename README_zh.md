@@ -123,9 +123,13 @@ Drilldown(Highcharts);
 **如果不需要使用其他功能模块的话，不需要上面这些步骤，也无需将 `Highcharts` 作为 props 传递给组件**
 关于 Load module 可以看：[Highchart - 通过 npm 安装](https://www.hcharts.cn/docs/install-from-npm)
 
-## props
-* `options`：图标数据，详情见 [Highcharts 文档](https://api.hcharts.cn/highcharts)
-* `Highcharts`：Highcharts 对象，可选。
+## Props
+Name                | Type          | Description(Default Value)   
+-------------------- | ---------------- | -----   | -------------------
+classes               | string            |    component class name(default: `vue-highcharts`) 
+style               | object  | component styles(default: `{}`)
+options            | object(require) | options of highcharts
+Highcharts | object | Highcharts instance  
 
 ## Build Setup
 
