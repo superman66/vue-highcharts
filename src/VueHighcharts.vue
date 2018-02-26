@@ -11,7 +11,20 @@ import Highcharts from 'highcharts'
 import { warn } from './debug'
 
 export default {
-  props: ['classname', 'styles', 'options', 'Highcharts'],
+  props: {
+    classname: {
+      type: String,
+      default: 'vue-highcharts',
+    },
+    styles: {
+      type: Object,
+      default: function(){
+        return {}
+      }
+    },
+    options: Object,
+    Highcharts: Object,
+  },
   name: 'VueHighcharts',
   data() {
     return {
