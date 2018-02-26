@@ -1,6 +1,7 @@
 export LineChart from './LineChart.vue'
 export AreaChart from './AreaChart.vue'
 export BarChart from './BarChart.vue'
+export ResponsiveChart from './ResponsiveChart.vue'
 export PieChart from './PieChart.vue'
 export ScallterPlotChart from './ScatterPlotChart.vue'
 export BubbleChart from './BubbleChart.vue'
