@@ -5,7 +5,8 @@
 
 [中文 README](./README_zh.md)
 
-Check the [DEMO](http://superman66.github.io/vue-highcharts/)
+Check the [Demo](http://superman66.github.io/vue-highcharts/) or 
+[Demo On CodeSanbox](https://codesandbox.io/s/jjyqvv0k13)
 
 ## Installation
 #### npm

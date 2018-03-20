@@ -3,7 +3,9 @@
 
 > The component of Vue 2.0 for highcharts
 
-查看 [DEMO](http://chenhuichao.com/vue-highcharts/demo/)
+查看 [Demo](http://chenhuichao.com/vue-highcharts/demo/)
+或
+[Demo On CodeSanbox](https://codesandbox.io/s/jjyqvv0k13)
 
 ## 安装
 #### npm
@@ -124,12 +126,12 @@ Drilldown(Highcharts);
 关于 Load module 可以看：[Highchart - 通过 npm 安装](https://www.hcharts.cn/docs/install-from-npm)
 
 ## Props
-Name                | Type          | Description(Default Value)   
--------------------- | ---------------- | -----   | -------------------
-classes               | string            |    component class name(default: `vue-highcharts`) 
-style               | object  | component styles(default: `{}`)
-options            | object(require) | options of highcharts
-Highcharts | object | Highcharts instance  
+|Name                | Type          | Description(Default Value)   |
+|-------------------- | ---------------- | -------------------|
+|classes               | string            |    component class name(default: `vue-highcharts`)| 
+|style               | object  | component styles(default: `{}`)|
+|options            | object(require) | options of highcharts|
+|Highcharts | object | Highcharts instance  |
 
 ## Build Setup
 
