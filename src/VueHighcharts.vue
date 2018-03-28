@@ -23,7 +23,7 @@ export default {
       }
     },
     options: Object,
-    Highcharts: Object,
+    highcharts: Object,
   },
   name: 'VueHighcharts',
   data() {
