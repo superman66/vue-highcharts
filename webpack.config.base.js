@@ -44,7 +44,7 @@ var base = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? '' : '#eval-source-map',
   plugins: [
 
   ],
@@ -52,5 +52,3 @@ var base = {
 
 
 module.exports = base;
-
-
