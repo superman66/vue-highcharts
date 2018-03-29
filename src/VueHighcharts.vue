@@ -71,7 +71,7 @@ export default {
 
     init() {
       if (!this.getChart() && this.options) {
-        let _Highcharts = this.Highcharts || Highcharts
+        let _Highcharts = this.highcharts || Highcharts
         if (_Highcharts.product == 'Highstock') {
           this.chart = new _Highcharts.stockChart(this.$el, this.options)
         } else {
