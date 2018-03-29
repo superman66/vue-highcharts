@@ -1,7 +1,7 @@
 <template>
     <section class="charts">
         <h3>Load Modules(Drilldown)</h3>
-        <vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
+        <vue-highcharts :highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
     </section>
 </template>
 <script>
