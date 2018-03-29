@@ -128,7 +128,7 @@ you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs
 |classes               | string            |    component class name(default: `vue-highcharts`)| 
 |style               | object  | component styles(default: `{}`)|
 |options            | object(require) | options of highcharts|
-|Highcharts | object | Highcharts instance  |
+|highcharts | object | Highcharts instance  |
 
 ## Build Setup
 
