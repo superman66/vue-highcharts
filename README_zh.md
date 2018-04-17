@@ -128,10 +128,10 @@ Drilldown(Highcharts);
 ## Props
 |Name                | Type          | Description(Default Value)   |
 |-------------------- | ---------------- | -------------------|
-|classes               | string            |    component class name(default: `vue-highcharts`)| 
-|style               | object  | component styles(default: `{}`)|
-|options            | object(require) | options of highcharts|
-|highcharts | object | Highcharts instance  |
+|classname              | string            | 组件 classname  (default: `vue-highcharts`)| 
+|style               | object  | 组件 styles(default: `{}`)|
+|options            | object(require) | options 数据|
+|highcharts | object | Highcharts 实例  |
 
 ## Build Setup
 
