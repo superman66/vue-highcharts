@@ -119,7 +119,7 @@ import Highcharts from 'highcharts'
 Drilldown(Highcharts);
 // Load Exporting module
 Exporting(Highcharts);
-<vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
+<vue-highcharts :highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
 ```
 you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs/getting-started/install-from-npm)
 ## Props
