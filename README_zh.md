@@ -119,7 +119,7 @@ Drilldown(Highcharts);
 最后需要将 `Highcharts` 作为 props 传入到组件当中：
 
 ```javascript
-<vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
+<vue-highcharts :highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
 ```
 同理，如果需要其他模块如 `Exporting（图像导出）`等，方式同上面的用法一样。 
 **如果不需要使用其他功能模块的话，不需要上面这些步骤，也无需将 `Highcharts` 作为 props 传递给组件**
