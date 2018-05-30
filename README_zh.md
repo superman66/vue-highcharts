@@ -125,6 +125,22 @@ Drilldown(Highcharts);
 **如果不需要使用其他功能模块的话，不需要上面这些步骤，也无需将 `Highcharts` 作为 props 传递给组件**
 关于 Load module 可以看：[Highchart - 通过 npm 安装](https://www.hcharts.cn/docs/install-from-npm)
 
+## 在 Nuxt.js 中使用
+在 Nuxt.js 中使用 `vue2-highcharts`，你需要在 `~/plugins` 中先定义一个全局 Component `vue-highcharts.js`:
+```js
+import Vue from 'vue'
+import VueHighcharts from 'vue2-highcharts'
+
+Vue.component('VueHighcharts', VueHighcharts)
+```
+
+然后在 `nuxt.config.js` 中添加刚刚创建的 plugin：
+
+```json
+plugins: [{ src: '~plugins/vue-highcharts.js', ssr: false }],
+```
+
+这样就就可以在你的项目中使用 `vue2-highcharts`.
 ## Props
 |Name                | Type          | Description(Default Value)   |
 |-------------------- | ---------------- | -------------------|

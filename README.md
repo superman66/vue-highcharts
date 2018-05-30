@@ -11,6 +11,8 @@ Check the [Demo](http://superman66.github.io/vue-highcharts/) or
 ## Installation
 #### npm
 
+>make sure you have installed highcharts.js. 
+
 ```
 npm install vue2-highcharts --save
 ```
@@ -122,6 +124,23 @@ Exporting(Highcharts);
 <vue-highcharts :highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
 ```
 you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs/getting-started/install-from-npm)
+
+## Using with Nuxt.js
+In Nuxt.js, you should define a globle Component for `vue2-highcharts` in `~/plugins`:
+
+```js
+import Vue from 'vue'
+import VueHighcharts from 'vue2-highcharts'
+
+Vue.component('VueHighcharts', VueHighcharts)
+```
+and add it in `nuxt.config.js`:
+
+```json
+plugins: [{ src: '~plugins/vue-highcharts.js', ssr: false }],
+```
+after that, you can use `vue2-highcharts` component in your nuxt.js project.
+
 ## Props
 |Name                | Type          | Description(Default Value)   |
 |-------------------- | ---------------- | -------------------|
@@ -136,7 +155,7 @@ you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs
 # install dependencies
 npm install
 
-# open "localhost:8080/demo" in browers
+# open "localhost:8080" in browers
 npm run dev
 
 # build for production with minification
