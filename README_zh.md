@@ -140,7 +140,8 @@ Vue.component('VueHighcharts', VueHighcharts)
 plugins: [{ src: '~plugins/vue-highcharts.js', ssr: false }],
 ```
 
-这样就就可以在你的项目中使用 `vue2-highcharts`.
+这样就就可以在你的项目中使用 `vue2-highcharts`。
+关于更多如何在 Nuxt.js 中使用 vue-highcharts，你可以查看: [vue-nuxt-demo for vue-highcharts](https://github.com/superman66/vue-nuxt-demo)
 ## Props
 |Name                | Type          | Description(Default Value)   |
 |-------------------- | ---------------- | -------------------|
