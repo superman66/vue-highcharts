@@ -31,7 +31,7 @@ var build = merge(base, {
     publicPath: '/dist/',
     filename: 'vue-highcharts.js',
     library: 'VueHighcharts',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   plugins
 })

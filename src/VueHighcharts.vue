@@ -98,15 +98,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" rel="stylesheet/scss" type="text/css">
-.vue-highcharts {
-  width: 100%;
-  display: inline-block;
-  margin: 2em auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.2);
-  padding: 1.5em 0em;
-  background: #fff;
-}
-</style>

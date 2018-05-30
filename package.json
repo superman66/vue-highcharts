@@ -15,7 +15,7 @@
     "prerelease": "npm run build",
     "release": "npm publish"
   },
-  "dependencies": {
+  "peerDependencies": {
     "highcharts": "^6.0.3",
     "vue": "^2.1.0"
   },
@@ -29,13 +29,16 @@
     "cz-conventional-changelog": "^2.1.0",
     "file-loader": "^0.9.0",
     "gh-pages": "^1.1.0",
+    "highcharts": "^6.0.3",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.1",
+    "vue": "^2.1.0",
     "vue-loader": "^10.0.0",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.1.0",
     "webpack": "^2.2.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-server": "^2.2.0",
     "webpack-merge": "^2.6.1"
   },
