@@ -126,7 +126,7 @@ Exporting(Highcharts);
 you can ses [Highcharts docs - Install from npm](https://www.highcharts.com/docs/getting-started/install-from-npm)
 
 ## Using with Nuxt.js
-In Nuxt.js, you should define a globle Component for `vue2-highcharts` in `~/plugins`:
+In Nuxt.js use `vue2-highcharts`, you should define a globle Component `vue-highcharts.js` for in `~/plugins`:
 
 ```js
 import Vue from 'vue'
@@ -136,7 +136,7 @@ Vue.component('VueHighcharts', VueHighcharts)
 ```
 and add it in `nuxt.config.js`:
 
-```json
+```
 plugins: [{ src: '~plugins/vue-highcharts.js', ssr: false }],
 ```
 after that, you can use `vue2-highcharts` component in your nuxt.js project.
