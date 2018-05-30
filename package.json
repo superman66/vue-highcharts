@@ -1,7 +1,7 @@
 {
   "name": "vue2-highcharts",
   "description": "vue-highcharts",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "superman <supermanchc@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -19,6 +19,10 @@
     "highcharts": "^6.0.3",
     "vue": "^2.1.0"
   },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
