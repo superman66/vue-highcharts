@@ -141,6 +141,8 @@ plugins: [{ src: '~plugins/vue-highcharts.js', ssr: false }],
 ```
 after that, you can use `vue2-highcharts` component in your nuxt.js project.
 
+for more detail, you can see: [vue-nuxt-demo for vue-highcharts](https://github.com/superman66/vue-nuxt-demo)
+
 ## Props
 |Name                | Type          | Description(Default Value)   |
 |-------------------- | ---------------- | -------------------|
