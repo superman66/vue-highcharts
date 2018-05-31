@@ -8,6 +8,9 @@ cache:
 script: 
   - npm run pages
 
+on:
+branch: master
+  
 jobs:
   include:
     - stage: ghpages
