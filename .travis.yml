@@ -1,18 +1,25 @@
 language: node_js
 node_js:
-- '6'
+- "node"
 cache:
   bundler: true
   directories:
   - node_modules
 script: 
-  - npm run release
+  - npm run build
 
 deploy:
-  provider: npm
-  email: supermanchc@gmail.com
-  api_key: $NPM_KEY
-  on:
-    tags: true
-    branch: master
-    skip_cleanup: true
+  - provider: npm
+    email: supermanchc@gmail.com
+    api_key: $NPM_KEY
+    on:
+      tags: true
+      branch: master
+      skip_cleanup: true
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    local-dir: assets
+    on:
+      branch: master
