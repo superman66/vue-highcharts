@@ -20,8 +20,6 @@ jobs:
         github-token: $GITHUB_TOKEN
         keep-history: true
         local-dir: assets
-        on:
-          branch: master
     - stage: deploy
       script: npm run build
       deploy:
@@ -29,8 +27,6 @@ jobs:
         email: supermanchc@gmail.com
         api_key: $NPM_KEY
         skip-cleanup: true
-        on:
-          branch: master
 
 # You can specify the order for stages
 stages:
