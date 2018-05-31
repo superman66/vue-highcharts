@@ -10,6 +10,11 @@
 import Highcharts from 'highcharts'
 import { warn } from './debug'
 
+const HIGHCHARTS_PRODUCT = {
+  Highmaps: 'Highmaps',
+  Highstock: 'Highstock',
+}
+
 export default {
   props: {
     classname: {
@@ -18,9 +23,9 @@ export default {
     },
     styles: {
       type: Object,
-      default: function(){
+      default: function() {
         return {}
-      }
+      },
     },
     options: Object,
     highcharts: Object,
@@ -41,6 +46,7 @@ export default {
     getChart() {
       return this.chart
     },
+
     addSeries(options) {
       this.delegateMethod('addSeries', options)
     },
@@ -69,14 +75,12 @@ export default {
       return this.getChart()[name](...args)
     },
 
+    initHigcharts(product) {},
+
     init() {
       if (!this.getChart() && this.options) {
-        let _Highcharts = this.highcharts || Highcharts
-        if (_Highcharts.product == 'Highstock') {
-          this.chart = new _Highcharts.stockChart(this.$el, this.options)
-        } else {
-          this.chart = new _Highcharts.Chart(this.$el, this.options)
-        }
+        let highchartInstance = this.highcharts || Highcharts
+        this.chart = new highchartInstance.Chart(this.$el, this.options)
       }
     },
   },
