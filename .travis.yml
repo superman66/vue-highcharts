@@ -6,21 +6,31 @@ cache:
   directories:
   - node_modules
 script: 
-  - npm run build
   - npm run pages
 
-deploy:
-  - provider: npm
-    email: supermanchc@gmail.com
-    api_key: $NPM_KEY
-    on:
-      tags: true
-      branch: master
-      skip_cleanup: true
-  - provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    keep-history: true
-    local-dir: assets
-    on:
-      branch: master
+jobs:
+  include:
+    - stage: ghpages
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN
+        keep-history: true
+        local-dir: dist
+        on:
+          branch: master
+    - stage: deploy
+      script: npm run build
+      deploy:
+        provider: npm
+        email: supermanchc@gmail.com
+        api_key: $NPM_KEY
+        skip-cleanup: true
+        on:
+          branch: master
+
+# You can specify the order for stages
+stages:
+  - ghpages
+  - name: deploy
+    if: tag IS present # conditional build, only deploy when tag is present
