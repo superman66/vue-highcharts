@@ -5,12 +5,9 @@ cache:
   bundler: true
   directories:
   - node_modules
-script: 
-  - npm run pages
-
-on:
-branch: master
   
+script:
+  - npm run pages
 jobs:
   include:
     - stage: ghpages
@@ -19,7 +16,9 @@ jobs:
         skip-cleanup: true
         github-token: $GITHUB_TOKEN
         keep-history: true
-        local-dir: assets
+        local-dir: dist
+        on:
+          branch: master
     - stage: deploy
       script: npm run build
       deploy:
@@ -27,9 +26,11 @@ jobs:
         email: supermanchc@gmail.com
         api_key: $NPM_KEY
         skip-cleanup: true
+        on:
+          tags: true
 
 # You can specify the order for stages
 stages:
-  - ghpages
+  - name: ghpages
   - name: deploy
     if: tag IS present # conditional build, only deploy when tag is present
