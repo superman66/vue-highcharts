@@ -1,11 +1,11 @@
+
 language: node_js
 node_js:
-- "node"
+  - "node"
 cache:
-  bundler: true
   directories:
   - node_modules
-  
+
 script:
   - npm run pages
 jobs:
@@ -16,7 +16,7 @@ jobs:
         skip-cleanup: true
         github-token: $GITHUB_TOKEN
         keep-history: true
-        local-dir: dist
+        local-dir: assets
         on:
           branch: master
     - stage: deploy
