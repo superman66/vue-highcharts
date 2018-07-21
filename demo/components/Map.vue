@@ -36,6 +36,9 @@ export default {
             },
           },
         },
+        mapNavigation: {
+          enabled: true,
+        },
 
         legend: {
           align: 'left',
