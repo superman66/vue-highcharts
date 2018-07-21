@@ -80,6 +80,13 @@ export default {
     init() {
       if (!this.getChart() && this.options) {
         let highchartInstance = this.highcharts || Highcharts
+        if (highchartInstance.product === 'Highstock') {
+          this.chart = new highchartInstance.stockChart(this.$el, this.options)
+          return
+        } else if (highchartInstance.product === 'Highmaps') {
+          this.chart = new highchartInstance.mapChart(this.$el, this.options)
+          return
+        }
         this.chart = new highchartInstance.Chart(this.$el, this.options)
       }
     },
