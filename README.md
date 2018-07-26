@@ -114,8 +114,8 @@ If you want to use Highstock, Highmaps or any other add-ons, you should load add
 **Load Drilldown module**
 
 ```javascript
-import Exporting from '../node_modules/highcharts/modules/Exporting.js'
-import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
+import Exporting from 'highcharts/modules/Exporting.js'
+import Drilldown from 'highcharts/modules/Drilldown.js'
 import Highcharts from 'highcharts'
 // Load Drilldown module
 Drilldown(Highcharts);
