@@ -107,12 +107,12 @@ export default{
 首先你需要引入所需的文件:
 
 ```javascript
-import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
+import Drilldown from 'highcharts/modules/Drilldown.js'
 ```
 接着引入 `Highcharts`，加载模块：
 
 ```javascript
-import Drilldown from '../node_modules/highcharts/modules/Drilldown.js'
+import Drilldown from 'highcharts/modules/Drilldown.js'
 import Highcharts from 'highcharts'
 Drilldown(Highcharts);
 ```
