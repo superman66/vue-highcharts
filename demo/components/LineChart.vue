@@ -13,7 +13,7 @@
 <script>
 import VueHighcharts from '../../src/VueHighcharts.vue'
 import Highcharts from 'highcharts';
-import Exporting from 'highcharts/modules/Exporting.js'
+import Exporting from 'highcharts/modules/exporting'
 import * as data from '../../data/data'
 Exporting(Highcharts)
 
