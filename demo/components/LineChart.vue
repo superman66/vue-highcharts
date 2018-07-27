@@ -3,7 +3,7 @@
         <h3>Line Basic
             <p>Load data with async</p>
         </h3>
-        <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
+        <vue-highcharts :highcharts="Highcharts" :options="options" ref="lineCharts"></vue-highcharts>
         <button @click="load">load</button>
         <button @click="update">update xAxis Categories</button>
         <button @click="remove">remove Series</button>
@@ -12,7 +12,10 @@
 </template>
 <script>
 import VueHighcharts from '../../src/VueHighcharts.vue'
+import Highcharts from 'highcharts';
+import Exporting from 'highcharts/modules/Exporting.js'
 import * as data from '../../data/data'
+Exporting(Highcharts)
 
 export default {
   components: {
@@ -21,6 +24,7 @@ export default {
   data() {
     return {
       options: data.basicData,
+      Highcharts: Highcharts,
     }
   },
   mounted() {},
