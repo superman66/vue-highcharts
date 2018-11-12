@@ -7,7 +7,7 @@
 </template>
 <script>
 
-import VueHighcharts from '../../dist/vue-highcharts.js'
+import VueHighcharts from '../../src/VueHighcharts'
 import Highcharts3D from 'highcharts/highcharts-3d'
 import Highcharts from 'highcharts'
 
