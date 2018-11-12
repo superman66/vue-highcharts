@@ -11,7 +11,6 @@ import Drilldown from '../../node_modules/highcharts/modules/drilldown.js'
 import { data } from '../../data/stockData.js'
 
 const stockData = data.map(d => d.slice(0.2))
-console.log(stockData)
 export default {
   components: {
     VueHighcharts,

@@ -2,7 +2,7 @@
 <template>
   <section class="charts">
         <h3>3D Column Chart</h3>
-        <vue-highcharts :options="options" ref="chart"></vue-highcharts>
+        <vue-highcharts :options="options" ref="chart" :highcharts="Highcharts"></vue-highcharts>
     </section>
 </template>
 <script>
@@ -116,6 +116,7 @@ export default {
   data() {
     return {
       options: data,
+      Highcharts
     }
   },
   mounted() {

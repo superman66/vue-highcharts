@@ -2,12 +2,12 @@
 <template>
   <section class="charts">
         <h3>3D Column Chart</h3>
-        <vue-highcharts :options="options" ></vue-highcharts>
+        <vue-highcharts :options="options" :highcharts="Highcharts" ></vue-highcharts>
     </section>
 </template>
 <script>
 
-import VueHighcharts from '../../src/VueHighcharts.vue'
+import VueHighcharts from '../../dist/vue-highcharts.js'
 import Highcharts3D from 'highcharts/highcharts-3d'
 import Highcharts from 'highcharts'
 
@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       options: data,
+      Highcharts,
     }
   }
 }

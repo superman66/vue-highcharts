@@ -1,7 +1,7 @@
 <template>
   <section class="charts">
         <h3>Bubble Chart</h3>
-        <vue-highcharts :options="options" ></vue-highcharts>
+        <vue-highcharts :options="options" :highcharts="Highcharts" ></vue-highcharts>
     </section>
 </template>
 <script>
@@ -130,6 +130,7 @@ export default {
   data() {
     return {
       options: data,
+      Highcharts,
     }
   }
 }
